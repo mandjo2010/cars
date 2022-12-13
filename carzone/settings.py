@@ -20,13 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '934nw3r62@!m0^ksgw3#31tntglnr%td+-_b89xpu2@q2zqv=d'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['floating-badlands-41165.herokuapp.com', 'carzoneapp.co', 'www.carzoneapp.co']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -88,20 +81,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'carzone.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'carzone_db',
-#         'USER': 'postgres',
-#         'PASSWORD': '######',
-#         'HOST': 'localhost',
-#     }
-# }
-
-DATABASES = {'default': dj_database_url.config(default='postgres://postgres:######@localhost/carzone_db')}
+# DATABASES = {'default': dj_database_url.config(default='postgres://postgres:######@localhost/carzone_db')}
 
 
 # Password validation
@@ -162,10 +143,16 @@ SITE_ID = 1
 # Email sending
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '########'
-EMAIL_HOST_PASSWORD = '#######'
+EMAIL_HOST_USER = 'nestormandjo@gmail.com'
+EMAIL_HOST_PASSWORD = 'csleqvfymbvotjpz'
 EMAIL_USE_TLS = True
 
 
 # Whitenoise settings
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+try :
+    from .local_settings import *
+except ImportError:
+    pass
